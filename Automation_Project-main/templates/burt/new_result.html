@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Result
+{% endblock title %}
+
+
+{% block body %}
+<br><br><br>
+<div class="container">
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Keyword</th>
+                {% for word in keywords %}
+                <th scope="col">{{word}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for res in result %}
+            <tr>
+                {% for item in res %}
+                    {% if forloop.counter0 == 1 %}
+                        {% for key, value in item.items %} 
+                        <td>{{value}}</td>
+                        {% endfor %}
+                    {% else %}
+                    <th scope="row">{{item}}</th>
+                    {% endif %}
+                {% endfor %} 
+            </tr>               
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

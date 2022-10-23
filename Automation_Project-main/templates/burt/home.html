@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+
+{% block body %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="{% url 'home' %}" method="POST">
+                {% csrf_token %}
+                <label>Please Select Your Query</label>
+                <select name="query_select" class="custom-select">
+                    <option value="burt">Burt</option>
+                    <option value="Jira">Jira</option>
+                    <option value="QTest">QTest</option>
+                </select>
+                <br><br>
+                <label>Number of Tables</label>
+                <input type="text" class="form-control" name="num_of_tables" id="">
+                <br>
+                <p>Output Options</p>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label>Enter Number of Rows</label>
+                    <input type="text" name="number_of_rows" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label>Enter Number of Columns</label>
+                        <input type="text" name="number_of_columns" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-danger mt-2">Proceed</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
