@@ -25,7 +25,7 @@ QTest
         <div class="card-body">
             <form action="{% url 'q_test' %}" method="POST">
                 {% csrf_token %}
-                <label>Query</label>
+                <label>Query Summary</label>
                 <input type="text" class="form-control" name="query" value={{query}}>
                 <button type="submit" class="btn btn-outline-danger mt-2">Proceed</button>
             </form>
